@@ -43,6 +43,7 @@ static ushort hotcode_ce;
 static const char hotkey_rt[] = "R";
 static ushort hotcode_rt;
 
+extern plugin_t PLUGIN;
 
 
 //--------------------------------------------------------------------------

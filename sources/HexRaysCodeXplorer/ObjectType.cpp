@@ -350,23 +350,23 @@ char * type_builder_t::get_structure(char * name, char * bufferr, int buffer_siz
 	char *buffer = bufferr;
 	int offs = 0;
 
-	buffer += sprintf_s(buffer, buffer_size - (int)(buffer - bufferr), "struct %s {\r\n", name);
+	buffer += snprintf(buffer, buffer_size - (int)(buffer - bufferr), "struct %s {\r\n", name);
 	for(unsigned int i = 0 ; i < structure.size() ; i ++)
 	{
 		if(structure[i].offset > offs)
 		{
-			buffer += sprintf_s(buffer, buffer_size - (int)(buffer - bufferr), "\tchar\tfiller_%d[%d];\r\n", i, structure[i].offset - offs);
+			buffer += snprintf(buffer, buffer_size - (int)(buffer - bufferr), "\tchar\tfiller_%d[%d];\r\n", i, structure[i].offset - offs);
 			offs = structure[i].offset;
 		}
 		
 		if(structure[i].offset == offs)
 		{
-			buffer += sprintf_s(buffer, buffer_size - (int)(buffer - bufferr), "\t%s\tfield_%d;\r\n", get_type_nm(structure[i].size), i);
+			buffer += snprintf(buffer, buffer_size - (int)(buffer - bufferr), "\t%s\tfield_%d;\r\n", get_type_nm(structure[i].size), i);
 			offs += structure[i].size;
 		}
 	}
 
-	buffer += sprintf_s(buffer, buffer_size - (int)(buffer - bufferr), "}");
+	buffer += snprintf(buffer, buffer_size - (int)(buffer - bufferr), "}");
 
 	return NULL;
 }

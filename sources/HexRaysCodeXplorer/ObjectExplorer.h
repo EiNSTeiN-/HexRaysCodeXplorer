@@ -26,8 +26,9 @@
 #include "netnode.hpp"
 #include <kernwin.hpp>
 
+#ifndef __LINUX__
 #include <windows.h>
-
+#endif
 
 
 struct object_explorer_info_t

@@ -36,7 +36,9 @@
 
 #include <string.h>
 #include <stdarg.h>
+#ifndef __LINUX__
 #include <tchar.h>
+#endif
 
 
 
@@ -82,7 +84,7 @@ BOOL get_vtbl_info(ea_t ea_address, tVTBL_info &vtbl_info)
 		if(!is_move_xref)
 			return(FALSE);
 
-		ZeroMemory(&vtbl_info, sizeof(tVTBL_info));
+		memset(&vtbl_info, 0, sizeof(tVTBL_info));
 
 		get_name(BADADDR, ea_address, vtbl_info.name_size, (MAXSTR - 1));
 

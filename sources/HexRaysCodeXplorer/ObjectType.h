@@ -22,8 +22,10 @@
 
 #pragma once
 
+#ifndef __LINUX__
 #include <Windows.h>
 #include <tchar.h>
+#endif
 #include <iterator>
 #include <string>
 #include <vector>
